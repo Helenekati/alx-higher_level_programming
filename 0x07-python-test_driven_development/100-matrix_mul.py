@@ -6,6 +6,7 @@ Module composed by a function that multiplies 2 matrices
 
 def matrix_mul(m_a, m_b):
  """ Function that multiplies 2 matrices
+
  Args:
     m_a: matrix a
     m_b: matrix b
@@ -19,6 +20,7 @@ def matrix_mul(m_a, m_b):
     TypeError: if the rows of m_a or m_b don't have the same size
     ValueError: if m_a and m_b can't be multiplied
  """
+
  if not isinstance(m_a, list):
     raise TypeError("m_a must be a list")
 
@@ -60,6 +62,7 @@ def matrix_mul(m_a, m_b):
 
  if len(m_a[0]) != len(m_b):
     raise ValueError("m_a and m_b can't be multiplied")
+
 
  r1 = []
  i1 = 0
