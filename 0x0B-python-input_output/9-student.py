@@ -1,20 +1,17 @@
 #!/usr/bin/python3
-'''
-file: 11-student.py
-Classes:
--> Student
-'''
+"""This module defines a class Student"""
 
 
 class Student:
-    ''' Student class '''
+    """Represent a student."""
 
-def __init__(self, first_name, last_name, age):
-    ''' Constructor method '''
-    self.first_name = first_name
-    self.last_name = last_name
-    self.age = age
+    def __init__(self, first_name, last_name, age):
+        """Initializes a new Student
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-def to_json(self):
-    ''' Method that returns directory description '''
-    return self.__dict__.copy()
+    def to_json(self):
+        """Gets a dictionary representation of the Student"""
+        return self.__dict__
