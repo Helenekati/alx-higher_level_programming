@@ -31,7 +31,8 @@ class Square(Rectangle):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
-                                                                                                         self.width = value
+
+        self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
@@ -60,8 +61,8 @@ class Square(Rectangle):
             Overloading str function
         """
         return "[{}] ({}) {}/{} - {}".format(type(self).__name__,
-                                        self.id, self.x, self.y,
-                                        self.width)
+                                             self.id, self.x, self.y,
+                                             self.width)
 
     def to_dictionary(self):
         """
@@ -71,4 +72,3 @@ class Square(Rectangle):
                 'size': getattr(self, "width"),
                 'x': getattr(self, "x"),
                 'y': getattr(self, "y")}
-

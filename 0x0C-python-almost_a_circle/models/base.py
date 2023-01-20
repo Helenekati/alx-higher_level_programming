@@ -12,10 +12,10 @@ class Base:
     Represents the "base" for all other classes in project 0x0C*.
 
     Attributes:
-         __nb_objects (int): The number of instantiated Bases.
+        __nb_objects (int): The number of instantiated Bases.
     """
 
-     __nb_objects = 0
+    __nb_objects = 0
 
     def __init__(self, id=None):
         """Initialize a new Base.
@@ -35,10 +35,10 @@ class Base:
 
         Args:
             list_dictionaries (list): A list of dictionaries.
-         """
-         if list_dictionaries is None or list_dictionaries == []:
+        """
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-         return json.dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -83,9 +83,11 @@ class Base:
                 new = cls(1)
             new.update(**dictionary)
             return new
-                                                                                                     @classmethod
+
+    @classmethod
     def load_from_file(cls):
         """Return a list of classes instantiated from a file of JSON strings.
+
         Reads from `<cls.__name__>.json`.
 
         Returns:
@@ -97,9 +99,10 @@ class Base:
             with open(filename, "r") as jsonfile:
                 list_dicts = Base.from_json_string(jsonfile.read())
                 return [cls.create(**d) for d in list_dicts]
-            except IOError:
-                return []
-                                                                                                     @classmethod
+        except IOError:
+            return []
+
+    @classmethod
     def save_to_file_csv(cls, list_objs):
         """Write the CSV serialization of a list of objects to a file.
 
@@ -115,9 +118,9 @@ class Base:
                     fieldnames = ["id", "width", "height", "x", "y"]
                 else:
                     fieldnames = ["id", "size", "x", "y"]
-                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                    for obj in list_objs:
-                        writer.writerow(obj.to_dictionary())
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
@@ -136,12 +139,12 @@ class Base:
                     fieldnames = ["id", "width", "height", "x", "y"]
                 else:
                     fieldnames = ["id", "size", "x", "y"]
-                    list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
-                    list_dicts = [dict([k, int(v)] for k, v in d.items())
-                            for d in list_dicts]
-                    return [cls.create(**d) for d in list_dicts]
-                except IOError:
-                 return []
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
 
     @staticmethod
     def draw(list_rectangles, list_squares):
@@ -180,5 +183,6 @@ class Base:
                 turt.left(90)
                 turt.forward(sq.height)
                 turt.left(90)
-                turt.hideturtle()
-                                                                                                        turtle.exitonclick()
+            turt.hideturtle()
+
+        turtle.exitonclick()

@@ -14,7 +14,7 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """
             Initializes the instance of the class..
-        """                                                                                
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -35,13 +35,13 @@ class Rectangle(Base):
             setter function for width.
             Args:
                 value (int): value to be set.
-                                                                                                         """
+        """
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
 
-    self.__width = value
+        self.__width = value
 
     @property
     def height(self):
@@ -63,7 +63,7 @@ class Rectangle(Base):
         if value <= 0:
             raise ValueError("height must be > 0")
 
-    self.__height = value
+        self.__height = value
 
     @property
     def x(self):
@@ -127,8 +127,8 @@ class Rectangle(Base):
 #        rectangle += print_symbol * self.__width
 
 #        print("{}".format(rectangle))
-        
-         print("\n" * self.y, end="")
+
+        print("\n" * self.y, end="")
 
         for i in range(self.height):
             rectangle += (" " * self.x) + (print_symbol*self.width) + "\n"
@@ -139,8 +139,9 @@ class Rectangle(Base):
             returns a string formart of the rectangle
         """
         return "[{}] ({}) {}/{} - {}/{}".format(type(self).__name__, self.id,
-                                        self.__x, self.__y,
-                                        self.__width, self.__height)
+                                                self.__x, self.__y,
+                                                self.__width, self.__height)
+
     def update(self, *args, **kwargs):
         """
             assigns key/value argument to attributes
@@ -154,7 +155,7 @@ class Rectangle(Base):
                 self.__setattr__(key, val)
             return
 
-         try:
+        try:
             self.id = args[0]
             self.width = args[1]
             self.height = args[2]
@@ -162,10 +163,11 @@ class Rectangle(Base):
             self.y = args[4]
         except IndexError:
             pass
-                                                                                                     def to_dictionary(self):
+
+    def to_dictionary(self):
         """
             returns the dictionary repr of a rect
         """
         return {'x': getattr(self, "x"), 'y': getattr(self, "y"),
                 'id': getattr(self, "id"), 'height': getattr(self, "height"),
-                'width': getattr(self, "width")}                                        
+                'width': getattr(self, "width")}
