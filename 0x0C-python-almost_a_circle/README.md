@@ -34,4 +34,4 @@ Test case for ```square.py```.
 
 * [Args and Kwargs in Python](https://alx-intranet.hbtn.io/rltoken/7gc6UzxSL81HcuAwklUbuQ)
 * [unittest module](https://alx-intranet.hbtn.io/rltoken/soictNXCPE18ASL3INoeew)
-* [Python Documentation](https://docs.python.org/]
+* [Python Documentation](https://docs.python.org/)
