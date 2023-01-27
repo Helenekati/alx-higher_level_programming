@@ -40,6 +40,7 @@ void print_python_list(PyObject *p)
 			print_python_float(list->ob_item[i]);
 	}
 }
+
 /**
  * print_python_bytes - Prints basic info about Python byte objects.
  * @p: A PyObject byte object.
@@ -76,6 +77,7 @@ void print_python_bytes(PyObject *p)
 			printf(" ");
 	}
 }
+
 /**
  * print_python_float - Prints basic info about Python float objects.
  * @p: A PyObject float object.
@@ -96,7 +98,7 @@ void print_python_float(PyObject *p)
 	}
 
 	buffer = PyOS_double_to_string(float_obj->ob_fval, 'r', 0,
-		Py_DTSF_ADD_DOT_0, NULL);
+			Py_DTSF_ADD_DOT_0, NULL);
 	printf("  value: %s\n", buffer);
 	PyMem_Free(buffer);
 }
